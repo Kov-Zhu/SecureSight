@@ -195,3 +195,7 @@ outputs/
 # Sensitive credentials
 *.pem
 *.key
+
+# ─── Testing ─────────────────────────────────────────────────────────────
+# Test files and directories
+test*
