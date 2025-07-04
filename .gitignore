@@ -199,3 +199,4 @@ outputs/
 # ─── Testing ─────────────────────────────────────────────────────────────
 # Test files and directories
 test*
+*.jpg
