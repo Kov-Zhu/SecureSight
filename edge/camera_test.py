@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import time
 import argparse
+from config import TEST_IMG_FLODER
 
 # Try to import Picamera2, if it fails, then use OpenCV V4L2 backend.
 try:
@@ -23,8 +24,8 @@ def test_with_picamera2(width, height, output):
 
     h, w = frame.shape[:2]
     print(f"[Picamera2] Captured frame: {w} x {h}")
-    cv2.imwrite(output, frame)
-    print(f"[Picamera2] Saved to {output}")
+    cv2.imwrite(TEST_IMG_FLODER + output, frame)
+    print(f"[Picamera2] Saved to {TEST_IMG_FLODER + output}")
 
 def test_with_opencv(width, height, output):
     """Using OpenCV V4L2 backend to capture frames and save"""
@@ -44,8 +45,8 @@ def test_with_opencv(width, height, output):
     else:
         h, w = frame.shape[:2]
         print(f"[OpenCV] Captured frame: {w} x {h}")
-        cv2.imwrite(output, frame)
-        print(f"[OpenCV] Saved to {output}")
+        cv2.imwrite(TEST_IMG_FLODER + output, frame)
+        print(f"[OpenCV] Saved to {TEST_IMG_FLODER + output}")
 
 def main():
     parser = argparse.ArgumentParser(description="Test Raspberry Pi camera")
