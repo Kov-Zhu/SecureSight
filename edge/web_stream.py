@@ -6,14 +6,14 @@ from yolo_utils import preprocess, postprocess, draw_results
 from config import MODEL_PATH, INPUT_SIZE, SCORE_THRESHOLD, NMS_THRESHOLD
 
 app = Flask(__name__)
+picam2 = Picamera2()
+config = picam2.create_preview_configuration()
+picam2.configure(config)
+picam2.start()
+time.sleep(1)
 
 def gen_frames():
-    picam2 = Picamera2()
-    # Use the default resolution of the camera
-    config = picam2.create_preview_configuration()
-    picam2.configure(config)
-    picam2.start()
-    time.sleep(1)
+    """Generate frames from the camera for video streaming."""
     while True:
         frame = picam2.capture_array()
         orig_h, orig_w = frame.shape[:2]
