@@ -84,6 +84,7 @@ nbdist/
 __pycache__/
 *.py[cod]
 *$py.class
+.venv
 
 # C extensions
 *.so
@@ -199,3 +200,5 @@ outputs/
 # ─── Testing ─────────────────────────────────────────────────────────────
 # Test files and directories
 test*
+*.jpg
+test_img/*
